@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boggle</title>
+        <link rel="stylesheet" href="static/app.css">
+    </head>
+    <body>
+    <div id='contents'>
+        <button id='start'>Start Game</button>
+        <table id='game'>
+            {% for list in board %}
+                <tr class="row">
+                    {% for letter in list %}
+                        <td class='letter'>{{letter}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+        <p id='result'></p>
+        <form class='form'>
+            <label for='word'>Word: </label>
+            <input type='text' name='word' id='word' placeholder="Your Guess"><br><br>
+            <input type='submit' id='submit'>
+        </form>
+        <p>Time:  <span id='time'></span></p>
+        <p>
+            <span class='stat'>Current Score:  <span id='score'></span></span>
+            <span class='stat'>Top Score:  <span id='top'>{{top}}</span></span>
+            <span class='stat'>Times Played:  <span id='played'>{{played}}</span></span>
+        </p>
+    </div>
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="static/boggle.js"></script>
+    </body>
+</html>
